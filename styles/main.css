@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    /* --bgColor: red; */
+    --pastel1: #a1c4fd;
+    --pastel2: #c2e9fb;
+    --pastel3: #fdbb2d;
+    --pastel4: #e0c3fc;
+    --pastel5: #fbc2eb;
+    --pastel6: #ffdd99;
+}
+
+* {
+    /* resetting all margin */
+    margin: 0;
+
+    /* resetting all padding */
+    padding: 0;
+}
+
+.body {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    font-family: "Inter", sans-serif;
+
+
+}
+
+.header {
+    /* background-color: var(--bgColor); */
+    grid-column: 1 / span 12;
+    grid-row: 1 / span 1;
+}
+
+.footer {
+    /* background-color: #503C3C; */
+    grid-column: 1 / span 12;
+    grid-row: 12 / span 1;
+}
+
+.left-sidebar {
+    /* background-color: #C21292; */
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 10;
+}
+
+.right-sidebar {
+    /* background-color: #C21292; */
+    grid-column: 12 / span 1;
+    grid-row: 2 / span 10;
+}
+
+.main {
+    /* background-color: #E6BAA3; */
+    grid-column: 2 / span 10;
+    grid-row: 2 / span 10;
+    background:
+        linear-gradient(45deg, var(--pastel1), var(--pastel2), var(--pastel3)),
+        linear-gradient(60deg, var(--pastel4), var(--pastel5), var(--pastel6));
+
+    background-size: 400% 400%;
+    background-repeat: repeat;
+
+    -webkit-animation: gradientAnimation 20s ease-in-out infinite;
+
+    border-radius: 22%;
+
+    box-shadow:
+        4px 4px 40px var(--pastel4),
+        -3px -3px 50px var(--pastel3),
+        10px 10px 70px var(--pastel6);
+}
+
+/* **** **** **** **** */
+/* Keyframe Animation Engin */
+/* **** **** **** **** */
+
+@-webkit-keyframes gradientAnimation {
+
+    0% {
+        background-position: 0% 0%;
+    }
+
+    25% {
+        background-position: 100% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    75% {
+        background-position: 0% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+
+/* **** **** **** **** */
+/* Responsivnes Code */
+/* **** **** **** **** */
+@media screen and (max-width: 768px) {
+    .body {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        grid-auto-rows: minmax(50px, auto);
+        font-family: "Inter", sans-serif;
+    }
+
+    .header,
+    .footer {
+        grid-column: 1 / span 4;
+    }
+
+    .left-sidebar,
+    .right-sidebar {
+        grid-column: 1 / span 2;
+        grid-row: auto;
+    }
+
+    .left-sidebar {
+        grid-row: 3;
+    }
+
+    .main {
+        grid-column: 1 / span 4;
+        grid-row: 2;
+        min-height: calc(100vh - 100px);
+    }
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    /* background-color: #c8a230; */
+    color: white;
+}
+
+.navbar-links,
+.navbar-search,
+.navbar-user {
+    display: flex;
+}
+
+.navbar-links a,
+.navbar-user a {
+    margin: 0 10px;
+}
+
+/* Footer Styling */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    /* background-color: #b9ac1f; */
+    color: white;
+}
+
+.footer-links a,
+.footer-social a {
+    margin: 0 10px;
+}
+
+.footer-contact {
+    text-align: center;
+    padding: 10px;
+    /* background-color: #2da1c7; */
+    color: white;
+}
+
+/* Responsive Design Anpassungen */
+@media screen and (max-width: 768px) {
+
+    .navbar,
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .navbar-links,
+    .navbar-search,
+    .navbar-user,
+    .footer-links,
+    .footer-social {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-links a,
+    .navbar-user a,
+    .footer-links a,
+    .footer-social a {
+        margin: 5px 0;
+    }
+}
